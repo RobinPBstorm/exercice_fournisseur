@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Objet servant à la navigation dans l'exercice
 public class MenuInteractif {
     FournisseurService monFournisseurService;
 
@@ -13,7 +14,9 @@ public class MenuInteractif {
         _remplirTexteMenu();
     }
 
-
+    /**
+     * Boucle central permettant une manipulation simple par un utilisateur
+     */
     public void run ()
     {
         boolean estEnCoursFonctionnement = true;
@@ -143,6 +146,9 @@ public class MenuInteractif {
         }
     }
 
+    /**
+     * Remplissage du texte du menu principal
+     */
     private void _remplirTexteMenu()
     {
         texteMenuPrincipal.add("1. Créer un fournisseur");
@@ -154,6 +160,9 @@ public class MenuInteractif {
         texteMenuPrincipal.add("7. Quitter");
     }
 
+    /**
+     * Affichage du menu principal
+     */
     private void _afficherMenu()
     {
         for(String ligne: texteMenuPrincipal)
@@ -162,6 +171,15 @@ public class MenuInteractif {
         }
     }
 
+    /**
+     * Passage de démande d'un id à un utilisateur
+     *
+     * scénario observé ici: simple entrée d'une valeur
+     * puis vérification si c'est bien un entier
+     *
+     * @return identifiant demandé
+     * @throws Exception si la valeur demandée n'est pas un entier
+     */
     private int _getId() throws Exception
     {
         Scanner scan = new Scanner(System.in);
@@ -181,6 +199,12 @@ public class MenuInteractif {
         }
     }
 
+    /**
+     * Passage pour demander une confirmation à l'utilisateur
+     *
+     * @param message Message de contexte de la confirmation
+     * @return si l'utilisateur confirme son choix
+     */
     private boolean _getConfirmation(String message)
     {
         Scanner scan = new Scanner(System.in);
